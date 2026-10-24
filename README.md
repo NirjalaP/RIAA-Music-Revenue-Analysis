@@ -2,9 +2,9 @@
 
 ### Exploring the Economics Behind Music Revenue Recovery
 
-An independent analysis of U.S. recorded music industry revenue using Recording Industry Association of America (RIAA) data and Tableau. This project examines long-term revenue trends, the transition from physical to digital formats, and the role of paid subscriptions in the industry's recovery.
+An independent analysis of U.S. recorded music industry revenue using data from the Recording Industry Association of America (RIAA). This project explores 52 years of industry performance, the transition from physical to digital music, and the economic role of paid streaming subscriptions.
 
-**[View Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nirjala.prajapati1612/viz/EconomicsBehindMusicRevenueRecovery/RIAADashboard)**
+**[Explore the Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nirjala.prajapati1612/viz/EconomicsBehindMusicRevenueRecovery/RIAADashboard)**
 
 ## Dashboard Preview
 
@@ -14,48 +14,131 @@ An independent analysis of U.S. recorded music industry revenue using Recording 
 
 ## Project Objectives
 
-- Examine how U.S. recorded music revenue has evolved from 1973 to 2024
-- Compare nominal and inflation-adjusted revenue to assess long-term industry performance
-- Identify which music formats contributed most to the recovery
-- Explore subscriber growth and revenue per reported paid subscription
+- Examine long-term changes in U.S. recorded music revenue from 1973 to 2024
+- Compare nominal and inflation-adjusted revenue to distinguish reported growth from real growth
+- Identify which music formats contributed to the industry's recovery
+- Investigate paid subscription growth and revenue per reported subscription
+- Explore potential challenges to future industry revenue growth
 
-## Tools and Skills
+## Dataset Overview
 
-- **Tableau:** Interactive dashboards, calculated fields, filters, and trend visualizations
-- **Data Validation:** Metric verification, unit consistency, and reconciliation with published totals
-- **Exploratory Data Analysis:** Time-series comparisons and format-level revenue analysis
-- **Business Analysis:** Interpretation of industry trends and subscription economics
+The analysis uses **3,484 records covering 52 years (1973–2024)** from the RIAA's U.S. Recorded Music Revenue dataset.
+
+| Attribute | Description |
+|---|---|
+| Data source | Recording Industry Association of America (RIAA) |
+| Records | 3,484 |
+| Time period | 1973–2024 |
+| Data structure | Historical, annual, format-level industry data |
+| Measures | Revenue, unit shipments, and subscription counts |
+| Revenue types | Nominal and inflation-adjusted |
+| Music formats | CDs, vinyl, downloads, streaming subscriptions, and other formats |
+| Analysis tool | Tableau |
+
+The dataset contains different types of measurements, making metric validation particularly important. Revenue values, physical units, and subscription counts cannot be aggregated interchangeably.
+
+## Data Preparation and Validation
+
+Before building the dashboard, I explored the dataset structure, reviewed metric definitions, and checked calculated totals against published industry figures.
+
+### Key Validation Issue
+
+My initial aggregation produced a 2024 revenue total approximately **$100 million higher** than the RIAA's published total.
+
+After investigating the underlying records, I found that **Paid Subscription** represented revenue, while **Paid Subscriptions** represented the annual-average number of subscriptions.
+
+Separating these metrics corrected the aggregation and reconciled the 2024 revenue total to approximately **$17.675 billion**.
+
+This highlighted the importance of understanding metric definitions and measurement units before interpreting results.
+
+### Analytical Preparation
+
+- Distinguished revenue values from physical unit shipments and subscription counts
+- Validated annual revenue totals against RIAA's published figures
+- Used inflation-adjusted revenue for historical comparisons
+- Compared revenue changes across formats and time periods
+- Calculated annual subscriber growth and revenue per reported subscription
+- Created Tableau calculated fields and interactive visualizations to investigate patterns
 
 ## Key Findings
 
-### 1. Revenue Has Not Fully Recovered in Real Terms
-U.S. recorded music revenue reached approximately **$17.7 billion in 2024**, but remained **35.6% below its 1999 inflation-adjusted peak** of approximately $27.5 billion.
+### 1. The Industry Has Not Fully Recovered in Real Terms
+
+U.S. recorded music revenue reached approximately **$17.7 billion in 2024**.
+
+However, after accounting for inflation, revenue remained approximately **35.6% below its 1999 peak of $27.5 billion**.
+
+This reveals a different picture from nominal revenue growth alone.
 
 ### 2. Paid Subscriptions Drove the Recovery
-Inflation-adjusted industry revenue increased from approximately **$8.9 billion in 2014 to $17.7 billion in 2024**, a net increase of $8.8 billion. Paid subscription revenue alone grew by approximately **$9.7 billion**, offsetting declines in other formats.
 
-### 3. Subscriber Growth Has Slowed
-Annual-average paid subscriptions reached approximately **100 million in 2024**, while year-over-year subscriber growth slowed to approximately **3.3%**.
+Inflation-adjusted recorded music revenue increased from approximately **$8.9 billion in 2014** to **$17.7 billion in 2024**, representing a net recovery of **$8.8 billion**.
 
-### 4. Inflation Matters for Subscription Economics
-From 2014 to 2024, nominal revenue per reported subscription increased from approximately **$100 to $107**, while inflation-adjusted revenue per reported subscription declined from approximately **$132 to $107**. This distinction highlights the importance of separating nominal performance from purchasing-power-adjusted trends.
+During the same period, paid subscription revenue increased by approximately **$9.7 billion**.
 
-## Data Validation and Methodology
+Paid subscriptions therefore contributed more than the net industry recovery, offsetting declines in CDs, downloads, and other formats.
 
-- Analyzed **3,484 RIAA dataset records** covering 1973–2024
-- Distinguished subscription counts from subscription revenue to avoid mixing units
-- Reconciled 2024 industry revenue against RIAA's published total
-- Used inflation-adjusted revenue for historical comparisons
-- Compared changes in revenue by music format and examined subscription-level metrics
+### 3. Subscriber Growth Is Maturing
+
+Annual-average paid subscriptions increased substantially over the past decade, reaching approximately **100 million in 2024**.
+
+However, year-over-year subscriber growth slowed to approximately **3.3% in 2024**, suggesting a more mature subscription market.
+
+This raises an important question: how can the industry sustain revenue growth as subscriber acquisition slows?
+
+### 4. Inflation Changes the Interpretation of Subscription Economics
+
+A closer comparison of nominal and inflation-adjusted revenue per reported subscription revealed an important distinction:
+
+| Metric | 2014 | 2024 |
+|---|---:|---:|
+| Nominal revenue per reported subscription | ~$100 | ~$107 |
+| Inflation-adjusted revenue per reported subscription | ~$132 | ~$107 |
+
+Nominal revenue per subscription increased slightly, while inflation-adjusted revenue per subscription declined.
+
+This indicates that inflation was a major driver of the decline in real revenue per subscription over this period, rather than a decline in nominal revenue per subscription.
+
+## Tableau Dashboard
+
+The interactive Tableau dashboard explores:
+
+- Historical nominal and inflation-adjusted revenue trends
+- Changes in revenue contribution across music formats
+- The growth of paid streaming subscriptions
+- Subscriber growth and subscription revenue trends
+- Industry recovery and long-term market dynamics
+
+**[Open the Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nirjala.prajapati1612/viz/EconomicsBehindMusicRevenueRecovery/RIAADashboard)**
+
+The packaged Tableau workbook is also available in this repository: [RIAA-Analysis.twbx](RIAA-Analysis.twbx).
 
 ## Limitations and Future Research
 
-RIAA's aggregate data does not fully explain subscription pricing, family and student plans, promotional bundles, churn, or platform-level profitability. Additional research using plan-level and consumer survey data would help distinguish pricing effects from changes in subscription mix and consumer behavior.
+The RIAA dataset provides valuable industry-level information, but it does not fully explain the underlying causes of changes in subscription economics.
+
+Important factors not directly captured include:
+
+- Individual, student, and family subscription plan mix
+- Promotional pricing and bundled subscription offers
+- Subscriber retention and churn
+- Consumer willingness to pay
+- Platform-level costs and profitability
+
+Revenue per reported subscription is an aggregate industry measure, not necessarily revenue per individual customer.
+
+Future research could combine industry data with consumer surveys and platform-level information to investigate pricing sensitivity, subscription preferences, and opportunities for sustainable growth.
+
+## Skills Demonstrated
+
+- **Data Validation:** Reconciled reported totals and identified inconsistent measurement units
+- **Exploratory Data Analysis:** Investigated multi-decade trends and changes in revenue composition
+- **Tableau:** Developed interactive visualizations, calculated fields, and analytical dashboards
+- **Business Analysis:** Connected quantitative findings to broader industry questions
+- **Analytical Communication:** Translated historical data into clear, evidence-based insights
 
 ## Data Source
 
-Recording Industry Association of America (RIAA) — U.S. Recorded Music Revenue Data
+**Recording Industry Association of America (RIAA)** — U.S. Recorded Music Revenue Data.
 
-## Tableau Workbook
-
-The Tableau packaged workbook is available in this repository: [RIAA-Analysis.twbx](RIAA-Analysis.twbx).
+This is an independent portfolio project created for analytical research and visualization purposes.
